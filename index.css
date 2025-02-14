@@ -1,0 +1,167 @@
+html {
+  box-sizing: border-box;
+}
+*,
+::after,
+::before {
+  box-sizing: inherit;
+}
+body {
+  margin: 0;
+}
+
+.container {
+  min-height: 100vh;
+  display: grid;
+  grid-template-areas:
+    "title"
+    "karusel"
+    "intro"
+    "links"
+    "footer";
+  grid-template-columns: 1fr;
+  grid-template-rows: 2fr 13fr 10fr 5fr 1fr;
+}
+/*---menu*/
+.title {
+  grid-area: title;
+  background-color: #3b4a06fe;
+  margin: 0;
+  /*display: grid;
+  grid-template-columns: repeat(4, 2fr);*/
+}
+.menu {
+  display: flex;
+  flex-direction: row;
+  width: 50%;
+  justify-content: space-around;
+  list-style: none;
+  text-decoration: none;
+  font-size: 1.5rem;
+}
+
+
+@media only screen and (max-width: 800px) {
+  .menu {
+    display: none;
+  }
+}
+.nav-link {
+  text-decoration: none;
+  color: antiquewhite;*/
+}
+
+/*@media only screen and (max-width: 800px) {
+  .nav {
+    display: none;
+  }
+}*/
+
+/*----kopirovano - zkontrolovat - */
+
+.ham {
+  width: 3vw;
+ aspect-ratio: 1/1; /*vyrobím čtverec*/
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around; 
+  cursor: pointer;
+  
+  
+}
+.cara1,
+.cara2,
+.cara3 {
+  width: 100%;
+  flex-shrink: 0;
+  height: 2px;
+  background-color: black;
+}
+.cara2 {
+  background-color: #bcb276;
+}
+ @media only screen and (min-width: 800px) {
+  .ham,
+  .cara1,
+  .cara2,
+  .cara3 {
+    display: none;
+  }
+}
+@media only screen and (max-width: 500px) {
+  .ham {
+    width: 9%;
+    align-self: stretch;
+  }
+}
+/*navigace klik*/
+
+.nav {
+    background-color: #bcb176ea;
+  position: fixed;
+  width: 40%;
+  height: 100%;
+  right: 0;
+  top: 0;
+  margin-top: 0;
+  padding: 5%;
+  display:grid;
+  height: 100 vh;
+  grid-template-rows: repeat(6, 1fr);
+}
+ul {
+  list-style: none;
+}
+@media only screen and (min-width: 800px) {
+  .nav {
+    display: none;
+  }
+} 
+.nav-link {
+  text-align: left;
+  text-decoration: none;
+  font-family: quicksand;
+  font-size: 1.6rem;
+  column-gap: 10rem;
+  color: #07192f;
+
+  /*border-bottom: 1px solid #07192f;*/
+}
+
+.hidden {
+  display: none;
+}
+
+.caraB {
+  display: none;
+}
+.caraA {
+  transform: rotate(45deg);
+  position:relative;
+  top:20%;
+}
+.caraC {
+  transform: rotate(-45deg);
+  position: relative;
+  bottom:30%;
+}
+
+.karusel {
+  grid-area: karusel;
+  background-color: grey;
+  background-image: url(img/pozadi2.jpg);
+  background-size: cover;
+  background-position: center;
+}
+.intro {
+  grid-area: intro;
+  background-color: bisque;
+}
+.links {
+  grid-area: links;
+  background-color: yellowgreen;
+}
+.footer {
+  grid-area: footer;
+  background-color: grey;
+}
