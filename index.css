@@ -22,15 +22,15 @@ body {
   grid-template-columns: 1fr;
   grid-template-rows: 2fr 13fr 10fr 5fr 1fr;
 }
+
 /*---menu*/
 .title {
   grid-area: title;
   background-color: #3b4a06fe;
   margin: 0;
-  /*display: grid;
-  grid-template-columns: repeat(4, 2fr);*/
 }
-.menu {
+
+.full {                                  /*viditelne menu*/
   display: flex;
   flex-direction: row;
   width: 50%;
@@ -39,35 +39,24 @@ body {
   text-decoration: none;
   font-size: 1.5rem;
 }
-
+.full a{
+  text-decoration: none;
+  color: antiquewhite;
+}
 
 @media only screen and (max-width: 800px) {
-  .menu {
+  .full {
     display: none;
   }
 }
-.nav-link {
-  text-decoration: none;
-  color: antiquewhite;*/
-}
 
-/*@media only screen and (max-width: 800px) {
-  .nav {
-    display: none;
-  }
-}*/
-
-/*----kopirovano - zkontrolovat - */
-
-.ham {
+.ham {                                       /*hamburger a krizek*/
   width: 3vw;
  aspect-ratio: 1/1; /*vyrobím čtverec*/
   display: flex;
   flex-direction: column;
   justify-content: space-around; 
-  cursor: pointer;
-  
-  
+  cursor: pointer; 
 }
 .cara1,
 .cara2,
@@ -94,10 +83,22 @@ body {
     align-self: stretch;
   }
 }
-/*navigace klik*/
+.caraB {
+  display: none;
+}
+.caraA {
+  transform: rotate(45deg);
+  position:relative;
+  top:20%;
+}
+.caraC {
+  transform: rotate(-45deg);
+  position: relative;
+  bottom:30%;
+}
 
-.nav {
-    background-color: #bcb176ea;
+.nav {                                       /*navigace na klik*/
+  background-color: #bcb176ea;
   position: fixed;
   width: 40%;
   height: 100%;
@@ -124,27 +125,18 @@ ul {
   font-size: 1.6rem;
   column-gap: 10rem;
   color: #07192f;
-
-  /*border-bottom: 1px solid #07192f;*/
 }
-
 .hidden {
   display: none;
 }
 
-.caraB {
-  display: none;
+.logo {
+  width: 8rem;
+  position: absolute;
+  bottom: 70%;
+  left: 83%;
 }
-.caraA {
-  transform: rotate(45deg);
-  position:relative;
-  top:20%;
-}
-.caraC {
-  transform: rotate(-45deg);
-  position: relative;
-  bottom:30%;
-}
+
 
 .karusel {
   grid-area: karusel;
