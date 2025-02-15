@@ -28,9 +28,11 @@ body {
   grid-area: title;
   background-color: #3b4a06fe;
   margin: 0;
+  position: relative;
 }
 
-.full {                                  /*viditelne menu*/
+.full {
+  /*viditelne menu*/
   display: flex;
   flex-direction: row;
   width: 50%;
@@ -39,7 +41,7 @@ body {
   text-decoration: none;
   font-size: 1.5rem;
 }
-.full a{
+.full a {
   text-decoration: none;
   color: antiquewhite;
 }
@@ -50,13 +52,14 @@ body {
   }
 }
 
-.ham {                                       /*hamburger a krizek*/
+.ham {
+  /*hamburger a krizek*/
   width: 3vw;
- aspect-ratio: 1/1; /*vyrobím čtverec*/
+  aspect-ratio: 1/1; /*vyrobím čtverec*/
   display: flex;
   flex-direction: column;
-  justify-content: space-around; 
-  cursor: pointer; 
+  justify-content: space-around;
+  cursor: pointer;
 }
 .cara1,
 .cara2,
@@ -69,7 +72,7 @@ body {
 .cara2 {
   background-color: #bcb276;
 }
- @media only screen and (min-width: 800px) {
+@media only screen and (min-width: 800px) {
   .ham,
   .cara1,
   .cara2,
@@ -88,16 +91,17 @@ body {
 }
 .caraA {
   transform: rotate(45deg);
-  position:relative;
-  top:20%;
+  position: relative;
+  top: 20%;
 }
 .caraC {
   transform: rotate(-45deg);
   position: relative;
-  bottom:30%;
+  bottom: 30%;
 }
 
-.nav {                                       /*navigace na klik*/
+.nav {
+  /*navigace na klik*/
   background-color: #bcb176ea;
   position: fixed;
   width: 40%;
@@ -106,7 +110,7 @@ body {
   top: 0;
   margin-top: 0;
   padding: 5%;
-  display:grid;
+  display: grid;
   height: 100 vh;
   grid-template-rows: repeat(6, 1fr);
 }
@@ -117,7 +121,7 @@ ul {
   .nav {
     display: none;
   }
-} 
+}
 .nav-link {
   text-align: left;
   text-decoration: none;
@@ -131,12 +135,11 @@ ul {
 }
 
 .logo {
-  width: 8rem;
+  max-width: 10vw;
+  max-height: fit-content;
   position: absolute;
-  bottom: 70%;
   left: 83%;
 }
-
 
 .karusel {
   grid-area: karusel;
