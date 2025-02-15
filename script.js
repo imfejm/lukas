@@ -12,7 +12,7 @@ tlacitko.addEventListener("click", () => {
   cara3.classList.toggle("caraC");
 });
 
-const images = ["img/bonsai2.jpg", "img/ptak3.jpg", "img/snek.jpg"];
+const images = ["img/snek.jpg", "img/bonsai2.jpg", "img/ptak3.jpg"];
 
 let currentIndex = 0;
 const karusel = document.querySelector(".karusel");
@@ -32,7 +32,6 @@ const dots = document.querySelectorAll(".dot");
 function changeImage(index) {
   currentIndex = index;
   karusel.style.backgroundImage = `url(${images[currentIndex]})`;
-  
 
   // Aktualizace aktivní tečky
   dots.forEach((dot) => dot.classList.remove("active"));
@@ -42,7 +41,6 @@ function changeImage(index) {
 function autoChange() {
   currentIndex = (currentIndex + 1) % images.length;
   changeImage(currentIndex);
-  
 }
 
 setInterval(autoChange, 5000); // Automatická změna každých 5 sekund

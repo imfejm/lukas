@@ -21,7 +21,7 @@ body {
     "links"
     "footer";
   grid-template-columns: 1fr;
-  grid-template-rows: 2fr 20fr 10fr 5fr 1fr;
+  grid-template-rows: 1.5fr 10fr 10fr 5fr 1fr;
 }
 @media only screen and (min-width: 800px) {
   .container {
@@ -150,7 +150,7 @@ ul {
 
   position: absolute;
   left: 83%;
-  top: -8%;
+  top: -11%;
 }
 
 .karusel {
