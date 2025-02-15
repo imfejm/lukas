@@ -12,7 +12,7 @@ body {
 }
 
 .container {
-  min-height: 100vh;
+  min-height:200vh;
   display: grid;
   grid-template-areas:
     "title"
@@ -25,7 +25,7 @@ body {
 }
 @media only screen and (min-width: 800px) {
   .container {
-    grid-template-rows: 4fr 30fr 10fr 5fr 1fr;
+    grid-template-rows: 2fr 15fr 10fr 6fr 2fr;
   }
 }
 
@@ -67,6 +67,8 @@ body {
   justify-content: space-around;
   cursor: pointer;
   margin: 2%;
+  position:absolute;
+  z-index: 9999;
 }
 .cara1,
 .cara2,
@@ -74,7 +76,8 @@ body {
   width: 100%;
   flex-shrink: 0;
   height: 2px;
-  background-color: #ccbd71;
+  background-color: #694f4d;
+  /*background-color: #ccbd71;*/
 }
 .cara2 {
   background-color: #bfb085;
@@ -109,17 +112,18 @@ body {
 
 .nav {
   /*navigace na klik*/
-  background-color: #bcb176ea;
+  background-color: #bfb085e4;
   position: fixed;
+  z-index: 9999;
   width: 40%;
   height: 100%;
-  right: 0;
+  left: 0;
   top: 0;
   margin-top: 0;
   padding: 5%;
   display: grid;
   height: 100 vh;
-  grid-template-rows: repeat(6, 1fr);
+  grid-template-rows: repeat(5, 1fr);
 }
 ul {
   list-style: none;

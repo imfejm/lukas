@@ -32,6 +32,7 @@ const dots = document.querySelectorAll(".dot");
 function changeImage(index) {
   currentIndex = index;
   karusel.style.backgroundImage = `url(${images[currentIndex]})`;
+  
 
   // Aktualizace aktivní tečky
   dots.forEach((dot) => dot.classList.remove("active"));
@@ -41,6 +42,7 @@ function changeImage(index) {
 function autoChange() {
   currentIndex = (currentIndex + 1) % images.length;
   changeImage(currentIndex);
+  
 }
 
 setInterval(autoChange, 5000); // Automatická změna každých 5 sekund
