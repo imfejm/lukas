@@ -8,6 +8,7 @@ html {
 }
 body {
   margin: 0;
+  background-color: #d4c7a3;
 }
 
 .container {
@@ -20,13 +21,18 @@ body {
     "links"
     "footer";
   grid-template-columns: 1fr;
-  grid-template-rows: 2fr 13fr 10fr 5fr 1fr;
+  grid-template-rows: 2fr 20fr 10fr 5fr 1fr;
+}
+@media only screen and (min-width: 800px) {
+  .container {
+    grid-template-rows: 4fr 30fr 10fr 5fr 1fr;
+  }
 }
 
 /*---menu*/
 .title {
   grid-area: title;
-  background-color: #3b4a06fe;
+  background-color: #383e1c;
   margin: 0;
   position: relative;
 }
@@ -60,6 +66,7 @@ body {
   flex-direction: column;
   justify-content: space-around;
   cursor: pointer;
+  margin: 2%;
 }
 .cara1,
 .cara2,
@@ -67,10 +74,10 @@ body {
   width: 100%;
   flex-shrink: 0;
   height: 2px;
-  background-color: black;
+  background-color: #ccbd71;
 }
 .cara2 {
-  background-color: #bcb276;
+  background-color: #bfb085;
 }
 @media only screen and (min-width: 800px) {
   .ham,
@@ -135,22 +142,49 @@ ul {
 }
 
 .logo {
-  max-width: 10vw;
-  max-height: fit-content;
+  max-width: 15%;
+
   position: absolute;
   left: 83%;
+  top: -8%;
 }
 
 .karusel {
   grid-area: karusel;
-  background-color: grey;
-  background-image: url(img/pozadi2.jpg);
+
   background-size: cover;
-  background-position: center;
+  background-position: 50%;
+  transition: background-image 1s ease-in-out;
+  position: relative;
 }
+
+/* Kontejner pro tečky */
+.dots {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+}
+
+/* Jednotlivé tečky */
+.dot {
+  width: 12px;
+  height: 12px;
+  background-color: white;
+  border-radius: 50%;
+  opacity: 0.5;
+  cursor: pointer;
+  transition: opacity 0.3s;
+}
+
+.dot.active {
+  opacity: 1; /* Aktivní tečka je jasnější */
+}
+
 .intro {
   grid-area: intro;
-  background-color: bisque;
 }
 .links {
   grid-area: links;
