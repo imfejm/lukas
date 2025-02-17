@@ -8,7 +8,7 @@ html {
 }
 body {
   margin: 0;
-  background-color: #d4c7a3;
+  background-color: #d4cdbc;
 }
 
 .container {
@@ -91,7 +91,7 @@ body {
     display: none;
   }
 }
-@media only screen and (max-width: 500px) {
+@media only screen and (max-width: 800px) {
   .ham {
     width: 9%;
     align-self: stretch;
@@ -283,14 +283,61 @@ ul {
     opacity: 0;
     transition: opacity 0.3s ease-in-out;
   }
-  
+
   .image-wrapper h2.show {
     opacity: 1; /* Nadpis se zobrazí po kliknutí */
-  }}
+  }
+}
 
 .intro {
   grid-area: intro;
+  grid-template-columns: 2fr 3fr;
+  gap: 1rem;
+  align-items: center;
+  width: 100%;
+  background-color: #bfb085;
+  border-bottom-right-radius: 20%;
+
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+  margin: 3% 0 2% 0;
 }
+
+.hello {
+  max-width: 100%;
+}
+.case {
+  background: linear-gradient(#2d0408, #433409);
+  border-bottom-right-radius: 20%;
+}
+
+.portrait {
+  margin: 5% 0 0 0;
+  border-radius: 30%;
+  max-width: 100%; /* Obrázek nebude přesahovat rodič */
+  height: auto; /* Zachová poměr stran */
+  display: block; /* Odstraní spodní mezeru u obrázku */
+  position: relative;
+  right: -5%;
+}
+
+@media (min-width: 768px) {
+  .intro {
+    display: grid;
+    grid-template-areas: "hello case";
+    grid-template-columns: 2fr 3fr;
+    gap: 1rem;
+    align-items: center;
+    width: 100%;
+  }
+
+  .hello {
+    grid-area: hello;
+  }
+  .case {
+    grid-area: case;
+  }
+}
+
 .footer {
   grid-area: footer;
   background-color: grey;
