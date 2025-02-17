@@ -222,9 +222,25 @@ ul {
 .links .image-wrapper {
   position: relative;
   display: inline-block;
-  margin: 10%;
+  border-radius: 50%;
+  margin: 7%;
 }
 
+/* Nový prvek pro rámeček */
+.links .border {
+  position: absolute;
+  top: -5px; /* Posunout rámeček ven */
+  left: -5px;
+  width: calc(100% + 10px);
+  height: calc(100% + 10px);
+  border-radius: 50%;
+  border: 6px solid transparent;
+  background: linear-gradient(#655244, #c1bc7a, #655244);
+  z-index: 1; /* Pod obrázkem */
+  transition: transform 0.5s linear;
+}
+
+/* Obrázek */
 .links img {
   border-radius: 50%;
   max-width: 100%;
@@ -233,26 +249,33 @@ ul {
   z-index: 2;
 }
 
-/* Gradientový kruhový rámeček */
-.links .image-wrapper::before {
-  content: "";
-  position: absolute;
-  top: -4px;
-  left: -4px;
-  width: calc(100% + 8px);
-  height: calc(100% + 8px);
-  border-radius: 50%;
-  border: 8px solid transparent; /* Okraj rámečku */
-  background: linear-gradient(150deg, #655244, #c1bc7a);
-  mask: radial-gradient(circle, transparent 47%, white 48%);
-  -webkit-mask: radial-gradient(circle, transparent 45%, white 50%);
-  z-index: 1;
-  transition: transform 1s linear;
+/* Otočení rámečku při kliknutí */
+.links .image-wrapper:active .border {
+  transform: rotate(360deg);
 }
 
-/* Otočení jen rámečku při kliknutí */
-.links .image-wrapper:active::before {
-  transform: rotate(360deg);
+/* Nadpis */
+.links h2 {
+  position: absolute;
+  border-radius: 7%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  background: #bfb085e4;
+  color: #2d0408;
+  text-align: center;
+  padding: 15px 0;
+  font-size: 24px;
+  font-weight: bold;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  z-index: 3;
+}
+
+/* Nadpis se zobrazí při hoveru */
+.links .image-wrapper:hover h2 {
+  opacity: 1;
 }
 
 .intro {
