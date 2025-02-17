@@ -277,6 +277,16 @@ ul {
 .links .image-wrapper:hover h2 {
   opacity: 1;
 }
+/*varianta hoveru pro mobily*/
+@media (max-width: 768px) {
+  .image-wrapper h2 {
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+  }
+  
+  .image-wrapper h2.show {
+    opacity: 1; /* Nadpis se zobrazí po kliknutí */
+  }}
 
 .intro {
   grid-area: intro;
