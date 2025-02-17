@@ -12,20 +12,21 @@ body {
 }
 
 .container {
-  min-height:200vh;
+  min-height: 200vh;
   display: grid;
   grid-template-areas:
     "title"
     "karusel"
-    "intro"
+    "info"
     "links"
+    "intro"
     "footer";
   grid-template-columns: 1fr;
-  grid-template-rows: 1.5fr 10fr 10fr 5fr 1fr;
+  grid-template-rows: 1fr 6fr 3fr auto 5fr 1fr;
 }
 @media only screen and (min-width: 800px) {
   .container {
-    grid-template-rows: 2fr 15fr 10fr 6fr 2fr;
+    grid-template-rows: 1fr 6fr auto 6fr 2fr;
   }
 }
 
@@ -67,7 +68,7 @@ body {
   justify-content: space-around;
   cursor: pointer;
   margin: 2%;
-  position:absolute;
+  position: absolute;
   z-index: 9999;
 }
 .cara1,
@@ -187,12 +188,74 @@ ul {
   opacity: 1; /* Aktivní tečka je jasnější */
 }
 
-.intro {
-  grid-area: intro;
+.info {
+  grid-area: info;
+  display: grid;
+  grid-template-columns: 2fr 3fr;
+  gap: 1rem;
+  align-items: center;
+  width: 100%;
+  border-bottom-right-radius: 20%;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+}
+.hello {
+  margin: 5%;
+  max-width: 100%;
+}
+.portrait {
+  margin: 5% 10% 5% 5%;
+  border-radius: 30%;
+
+  max-width: 100%; /* Obrázek nebude přesahovat rodič */
+  height: auto; /* Zachová poměr stran */
+  display: block; /* Odstraní spodní mezeru u obrázku */
 }
 .links {
   grid-area: links;
-  background-color: yellowgreen;
+  background-color: #c1bc7a;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+ 
+}
+.links .image-wrapper {
+  position: relative;
+  display: inline-block;
+  margin: 10%
+}
+
+.links img {
+  border-radius: 50%;
+  max-width: 100%;
+  display: block;
+  position: relative;
+  z-index: 2;
+}
+
+/* Gradientový kruhový rámeček */
+.links .image-wrapper::before {
+  content: "";
+  position: absolute;
+  top: -4px;
+  left: -4px;
+  width: calc(100% + 8px);
+  height: calc(100% + 8px);
+  border-radius: 50%;
+  border: 8px solid transparent; /* Okraj rámečku */
+  background: linear-gradient(45deg, #655244, #c1bc7a);
+  mask: radial-gradient(circle, transparent 47%, white 48%);
+  -webkit-mask: radial-gradient(circle, transparent 45%, white 50%);
+  z-index: 1;
+  transition: transform 0.5s linear;
+}
+
+/* Otočení jen rámečku při kliknutí */
+.links .image-wrapper:active::before {
+  transform: rotate(360deg);
+}
+
+.intro {
+  grid-area: intro;
 }
 .footer {
   grid-area: footer;
