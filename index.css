@@ -59,12 +59,12 @@ body {
     "intro"
     "footer";
   grid-template-columns: 1fr;
-  grid-template-rows: 3fr 2fr auto 3fr 1fr;
+  grid-template-rows: 3fr 2fr auto 3fr 40px;
   padding-top: 60px;
 }
 @media only screen and (min-width: 800px) {
   .container {
-    grid-template-rows: 6fr auto 6fr 2fr;
+    grid-template-rows: 80vh 2fr auto 3fr 40px;
   }
 }
 
@@ -190,6 +190,14 @@ ul {
   transition: background-image 1s ease-in-out;
   position: relative;
 }
+@media only screen and (min-width: 800px) {
+  .karusel {
+    background-color: #383e1c;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+}
 
 /* Kontejner pro tečky */
 .dots {
@@ -223,9 +231,19 @@ ul {
   gap: 1rem;
   align-items: center;
   width: 100%;
-  border-bottom-right-radius: 20%;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
 }
+h1 {
+  font-family: Grechen Fuemen;
+  font-size: 70px;
+  margin: 2%;
+}
+@media only screen and (min-width: 800px) {
+  h1 {
+    font-size: 100px;
+  }
+}
+
 .hello {
   margin: 5%;
   max-width: 100%;
@@ -248,9 +266,10 @@ ul {
   align-items: center;
 }
 @media only screen and (min-width: 800px) {
-  .links{
+  .links {
     flex-direction: row;
-  }}
+  }
+}
 
 .links .image-wrapper {
   position: relative;
@@ -289,6 +308,9 @@ ul {
 
 /* Nadpis */
 .links h2 {
+  font-family: Grechen Fuemen;
+  font-size: 50px;
+  /*text-transform:uppercase;*/
   position: absolute;
   border-radius: 7%;
   top: 50%;
@@ -299,7 +321,6 @@ ul {
   color: #2d0408;
   text-align: center;
   padding: 15px 0;
-  font-size: 24px;
   font-weight: bold;
   opacity: 0;
   transition: opacity 0.3s ease-in-out;
@@ -330,7 +351,7 @@ ul {
   margin: 3% auto 2% auto; /* Automatický margin vycentruje */
   max-width: 100%; /* Zabrání přetečení */
   align-items: center;
-    background-color: #bfb085;
+  background-color: #bfb085;
   border-bottom-right-radius: 20%;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
   margin: 3% 5% 2% 5%;
