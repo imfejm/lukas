@@ -14,6 +14,8 @@ body {
   background-color: #d4cdbc;
   overflow-x: hidden; /* Zakáže horizontální posuvník */
   width: 100vw; /* Zabrání roztažení */
+  font-family: Pavanam;
+  font-size: 16px;
 }
 
 .container {
@@ -189,6 +191,7 @@ ul {
   background-position: 50%;
   transition: background-image 1s ease-in-out;
   position: relative;
+  box-shadow: 0px 3px 4px rgba(180, 21, 21, 0.633);
 }
 @media only screen and (min-width: 800px) {
   .karusel {
@@ -226,36 +229,37 @@ ul {
 
 .info {
   grid-area: info;
-  display: grid;
-  grid-template-columns: 2fr 3fr;
-  gap: 1rem;
-  align-items: center;
+  
   width: 100%;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
 }
+@media only screen and (min-width: 800px) {.info {grid-template-columns: 2fr 3fr;
+  gap: 1rem;
+  align-items: center;
+  width: 100%;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);}}
+
 h1 {
+  text-align: center;
   font-family: Grechen Fuemen;
   font-size: 70px;
-  margin: 2%;
+  color: black;  
+  margin: 2% 5% 1% 5%;
+  
 }
 @media only screen and (min-width: 800px) {
   h1 {
     font-size: 100px;
   }
 }
-
-.hello {
-  margin: 5%;
-  max-width: 100%;
+.info p{
+  
+  margin: 2% 10% 1% 10%;
+  padding: 2%;
+  box-shadow: 1px 1px 1px #62190f24;
 }
-.portrait {
-  margin: 5% 10% 5% 5%;
-  border-radius: 30%;
 
-  max-width: 100%; /* Obrázek nebude přesahovat rodič */
-  height: auto; /* Zachová poměr stran */
-  display: block; /* Odstraní spodní mezeru u obrázku */
-}
+
 
 /*odazy na eshop*/
 .links {
@@ -356,10 +360,19 @@ h1 {
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
   margin: 3% 5% 2% 5%;
 }
-
 .hello {
+  margin: 5%;
   max-width: 100%;
+  
 }
+.portrait {
+  margin: 5% 10% 5% 5%;
+  border-radius: 30%;
+  max-width: 100%; /* Obrázek nebude přesahovat rodič */
+  height: auto; /* Zachová poměr stran */
+  display: block; /* Odstraní spodní mezeru u obrázku */
+}
+
 .case {
   background: linear-gradient(#2d0408, #433409);
   border-bottom-right-radius: 20%;
