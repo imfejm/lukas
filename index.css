@@ -18,26 +18,6 @@ body {
   font-size: 16px;
 }
 
-.container {
-  /* min-height: 200vh;*/
-  max-width: 100vw; /* Zabrání přetékání obsahu */
-  display: grid;
-  grid-template-areas:
-    "karusel"
-    "info"
-    "links"
-    "intro"
-    "footer";
-  grid-template-columns: 1fr;
-  grid-template-rows: 6fr 3fr auto 5fr 1fr;
-  padding-top: 60px;
-}
-@media only screen and (min-width: 800px) {
-  .container {
-    grid-template-rows: 4fr 2fr 4fr 2fr;
-  }
-}
-
 /*---menu*/
 .title {
   position: fixed;
@@ -49,6 +29,7 @@ body {
   z-index: 1000;
   display: flex; /* Pokud obsah mizí, pomůže flexbox */
   align-items: center; /* Zarovná obsah vertikálně */
+  justify-content: space-between;
   padding-top: 0.5%;
 }
 .container {
@@ -59,14 +40,14 @@ body {
     "info"
     "links"
     "intro"
-    "footer";
+    "contact";
   grid-template-columns: 1fr;
-  grid-template-rows: 3fr 2fr auto 3fr 40px;
+  grid-template-rows: 3fr 2fr auto 3fr auto;
   padding-top: 60px;
 }
 @media only screen and (min-width: 800px) {
   .container {
-    grid-template-rows: 80vh 2fr auto 3fr 40px;
+    grid-template-rows: 80vh 2fr auto 3fr auto;
   }
 }
 
@@ -199,7 +180,6 @@ ul {
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    
   }
 }
 
@@ -230,37 +210,37 @@ ul {
 
 .info {
   grid-area: info;
-  
+
   width: 100%;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
 }
-@media only screen and (min-width: 800px) {.info {grid-template-columns: 2fr 3fr;
-  gap: 1rem;
-  align-items: center;
-  width: 100%;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);}}
+@media only screen and (min-width: 800px) {
+  .info {
+    grid-template-columns: 2fr 3fr;
+    gap: 1rem;
+    align-items: center;
+    width: 100%;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+  }
+}
 
 h1 {
   text-align: center;
   font-family: Grechen Fuemen;
   font-size: 70px;
-  color: black;  
+  color: black;
   margin: 2% 5% 1% 5%;
-  
 }
 @media only screen and (min-width: 800px) {
   h1 {
     font-size: 100px;
   }
 }
-.info p{
-  
+.info p {
   margin: 2% 10% 1% 10%;
   padding: 2%;
   box-shadow: 1px 1px 1px #62190f24;
 }
-
-
 
 /*odazy na eshop*/
 .links {
@@ -364,7 +344,6 @@ h1 {
 .hello {
   margin: 5%;
   max-width: 100%;
-  
 }
 .portrait {
   margin: 5% 10% 5% 5%;
@@ -407,7 +386,44 @@ h1 {
   }
 }
 
-.footer {
-  grid-area: footer;
+.contact {
+  grid-area: contact;
   background-color: #383e1c;
+  margin-top: 5%;
+}
+h3 {
+  text-align: center;
+  margin: 3%;
+  color: #d4cdbc;
+  font-style: normal;
+}
+.forms {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #d4cdbc;
+  font-style: bold;
+}
+@media only screen and (min-width: 800px) {
+  .contact {
+    display: grid;
+    grid-template-columns: 2fr 3fr;
+    gap: 7rem;
+  }
+  .forms {
+    margin: 5%;
+  }
+}
+
+.forms input,
+textarea {
+  width: 50%;
+  margin: 1%;
+}
+.forms button {
+  background-color: #bfb085;
+  width: 4rem;
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+  margin: 1%;
 }
