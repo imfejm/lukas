@@ -22,7 +22,7 @@
     <div class="title">
       <div class="full">
         <a href="">e-shop</a>
-        <a href="">Lukáš</a>
+        <a href="#intro">Lukáš</a>
         <a href="#contact">kontakt</a>
         <a href="">čtyři</a>
       </div>
@@ -36,7 +36,7 @@
             <a class="nav-link" href="">e-shop</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="">Lukáš</a>
+            <a class="nav-link" href="#intro">Lukáš</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#contact">kontakt</a>
@@ -90,7 +90,7 @@
           <h2>Bonsai</h2>
         </div>
       </div>
-      <div class="intro">
+      <div class="intro" id="intro">
         <p class="hello">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio,
           asperiores quibusdam molestiae rerum, nam illo eum itaque ea
@@ -102,9 +102,29 @@
         </div>
       </div>
       <div class="contact" id="contact">
-        <h3>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis, sit!
-        </h3>
+        <div class="all">
+          <h4>
+            Sleduj mě na Instagramu nebo Facebooku. Najdeš tam novinky z výstav,
+            nové výrobky a můžeš mi i napsat. Nebo samozřejmě můžeš použít
+            kontaktní formulář tady.
+          </h4>
+          <div class="soc">
+            <a
+              href="https://www.facebook.com/keramika.od.luka"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img src="img/facebook (1).png" alt="facebook" class="facebook"
+            /></a>
+            <a
+              href="https://www.instagram.com/luk_bonsai?igsh=eXBzOThjNTZ2Y3Nu"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img src="img/instagram.png" alt="instagram" class="instagram" />
+            </a>
+          </div>
+        </div>
         <form class="forms" action="send_mail.php" method="POST">
           <label for="name">Jméno:</label>
           <input type="text" id="name" name="name" required />

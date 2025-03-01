@@ -150,7 +150,6 @@ ul {
 .nav-link {
   text-align: left;
   text-decoration: none;
-  font-family: quicksand;
   font-size: 1.6rem;
   column-gap: 10rem;
   color: #07192f;
@@ -210,7 +209,6 @@ ul {
 
 .info {
   grid-area: info;
-
   width: 100%;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
 }
@@ -242,7 +240,7 @@ h1 {
   box-shadow: 1px 1px 1px #62190f24;
 }
 
-/*odazy na eshop*/
+/*odkazy na eshop*/
 .links {
   grid-area: links;
   background-color: #c1bc7a;
@@ -297,7 +295,7 @@ h1 {
   font-size: 50px;
   /*text-transform:uppercase;*/
   position: absolute;
-  border-radius: 7%;
+  border-radius: 7% 7% 50% 50%;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -330,57 +328,55 @@ h1 {
 
 .intro {
   grid-area: intro;
+  display: grid;
   grid-template-columns: 2fr 3fr;
   gap: 1rem;
-  width: 90%; /* Nebude zabírat celou šířku */
-  margin: 3% auto 2% auto; /* Automatický margin vycentruje */
-  max-width: 100%; /* Zabrání přetečení */
+  width: 90%; /* Nebude přesahovat */
+  max-width: 1200px; /* Omezí maximální šířku */
+  margin: 3% auto 2% auto; /* Automaticky vycentruje */
   align-items: center;
   background-color: #bfb085;
   border-bottom-right-radius: 20%;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
-  margin: 3% 5% 2% 5%;
 }
+
 .hello {
   margin: 5%;
   max-width: 100%;
-}
-.portrait {
-  margin: 5% 10% 5% 5%;
-  border-radius: 30%;
-  max-width: 100%; /* Obrázek nebude přesahovat rodič */
-  height: auto; /* Zachová poměr stran */
-  display: block; /* Odstraní spodní mezeru u obrázku */
 }
 
 .case {
   background: linear-gradient(#2d0408, #433409);
   border-bottom-right-radius: 20%;
+  display: flex; /* Pomůže zarovnat obrázek */
+  justify-content: center; /* Vycentrování obrázku */
+  height: 100%;
+  display: flex;
+  align-items: flex-end; /* Zarovná obsah (obrázek) dolů */
+
 }
 
 .portrait {
-  margin: 5% 0 0 0;
-  border-radius: 30%;
-  max-width: 100%; /* Obrázek nebude přesahovat rodič */
-  height: auto; /* Zachová poměr stran */
-  display: block; /* Odstraní spodní mezeru u obrázku */
-  position: relative;
-  right: -5%;
+  max-width: 100%; /* Obrázek nebude přesahovat */
+  height: 100%;
+  display: block;
+  position: static; /* Odstranění `right: -5%` */
+  object-fit: contain;
+  object-position: bottom;
 }
 
 @media (min-width: 768px) {
   .intro {
-    display: grid;
     grid-template-areas: "hello case";
     grid-template-columns: 2fr 3fr;
-    gap: 1rem;
-    align-items: center;
-    width: 100%;
+    width: 90%; /* Omezíme šířku, aby nepřetékal */
+    max-width: 1200px; /* Pevný limit */
   }
 
   .hello {
     grid-area: hello;
   }
+
   .case {
     grid-area: case;
   }
@@ -391,12 +387,18 @@ h1 {
   background-color: #383e1c;
   margin-top: 5%;
 }
-h3 {
+h4 {
   text-align: center;
   margin: 3%;
   color: #d4cdbc;
   font-style: normal;
 }
+.facebook,
+.instagram {
+  width: 20%;
+  margin: 4% 15% 13% 13%;
+}
+
 .forms {
   display: flex;
   flex-direction: column;
@@ -407,17 +409,26 @@ h3 {
 @media only screen and (min-width: 800px) {
   .contact {
     display: grid;
+    grid-template-areas: "all form";
     grid-template-columns: 2fr 3fr;
-    gap: 7rem;
+    gap: 3rem;
+  }
+  .all {
+    grid-area: all;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
   }
   .forms {
+    grid-area: form;
     margin: 5%;
   }
 }
 
 .forms input,
 textarea {
-  width: 50%;
+  width: 90%;
   margin: 1%;
 }
 .forms button {
