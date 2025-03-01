@@ -135,12 +135,14 @@ body {
   top: 0;
   margin-top: 0;
   padding: 5%;
-  display: grid;
+  padding-top: 20%;
   height: 100 vh;
-  grid-template-rows: repeat(5, 1fr);
+  /*grid-template-rows: repeat(5, 1fr);*/
 }
 ul {
   list-style: none;
+  display: flex;
+  flex-direction: column;
 }
 @media only screen and (min-width: 800px) {
   .nav {
@@ -353,7 +355,6 @@ h1 {
   height: 100%;
   display: flex;
   align-items: flex-end; /* Zarovná obsah (obrázek) dolů */
-
 }
 
 .portrait {
