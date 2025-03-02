@@ -109,5 +109,3 @@ document.addEventListener("DOMContentLoaded", function () {
 
   images.forEach((image) => observer.observe(image));
 });
-
-

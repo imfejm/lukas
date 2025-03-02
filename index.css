@@ -210,16 +210,18 @@ ul {
 }
 
 .info {
+  background-color: rgba(240, 248, 255, 0.476);
   grid-area: info;
-  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: baseline;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+  margin: 0 auto 7% auto;
 }
+
 @media only screen and (min-width: 800px) {
   .info {
-    grid-template-columns: 2fr 3fr;
-    gap: 1rem;
-    align-items: center;
-    width: 100%;
+    max-width: 1200px;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
   }
 }
@@ -229,7 +231,8 @@ h1 {
   font-family: Grechen Fuemen;
   font-size: 70px;
   color: black;
-  margin: 2% 5% 1% 5%;
+  margin: 2% auto 2% auto;
+  padding: 1%;
 }
 @media only screen and (min-width: 800px) {
   h1 {
@@ -237,9 +240,7 @@ h1 {
   }
 }
 .info p {
-  margin: 2% 10% 1% 10%;
-  padding: 2%;
-  box-shadow: 1px 1px 1px #62190f24;
+  padding: 0 1% 0 1%;
 }
 
 /*odkazy na eshop*/
@@ -330,12 +331,13 @@ h1 {
 
 .intro {
   grid-area: intro;
-  display: grid;
-  grid-template-columns: 2fr 3fr;
-  gap: 1rem;
-  width: 90%; /* Nebude přesahovat */
-  max-width: 1200px; /* Omezí maximální šířku */
-  margin: 3% auto 2% auto; /* Automaticky vycentruje */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 90%; /* Nebude zabírat celou šířku */
+  height: fit-content;
+  margin: 5% auto 0 auto; /* Automatický margin vycentruje */
+  max-width: 100%; /* Zabrání přetečení */
   align-items: center;
   background-color: #bfb085;
   border-bottom-right-radius: 20%;
@@ -343,50 +345,70 @@ h1 {
 }
 
 .hello {
-  margin: 5%;
+  padding: 2%;
   max-width: 100%;
 }
 
 .case {
   background: linear-gradient(#2d0408, #433409);
   border-bottom-right-radius: 20%;
-  display: flex; /* Pomůže zarovnat obrázek */
-  justify-content: center; /* Vycentrování obrázku */
-  height: 100%;
-  display: flex;
-  align-items: flex-end; /* Zarovná obsah (obrázek) dolů */
 }
 
 .portrait {
-  max-width: 100%; /* Obrázek nebude přesahovat */
-  height: 100%;
-  display: block;
-  position: static; /* Odstranění `right: -5%` */
-  object-fit: contain;
+  max-width: 100%; /* Obrázek nebude přesahovat rodič */
+  height: auto; /* Zachová poměr stran */
+  display: block; /* Odstraní spodní mezeru u obrázku */
   object-position: bottom;
 }
 
 @media (min-width: 768px) {
   .intro {
+    grid-area: intro;
+    display: grid;
+    align-items: center;
+    grid-template-columns: 2fr 3fr;
+    gap: 1rem;
+    width: 90%; /* Omezíme šířku, aby nepřetékal */
+    max-width: 1200px; /* Omezí maximální šířku */
+    margin: 5% auto 0 auto; /* Automaticky vycentruje */
+    background-color: #bfb085;
+    border-bottom-right-radius: 20%;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
     grid-template-areas: "hello case";
     grid-template-columns: 2fr 3fr;
-    width: 90%; /* Omezíme šířku, aby nepřetékal */
-    max-width: 1200px; /* Pevný limit */
   }
 
   .hello {
+    max-width: 100%;   
     grid-area: hello;
   }
 
   .case {
     grid-area: case;
+    background: linear-gradient(#2d0408, #433409);
+    border-bottom-right-radius: 20%;
+    display: flex; /* Pomůže zarovnat obrázek */
+    justify-content: center; /* Vycentrování obrázku */
+    height: 100%;
+    display: flex;
+    align-items: flex-end; /* Zarovná obsah (obrázek) dolů */
+  }
+  .portrait {
+    max-width: 100%; /* Obrázek nebude přesahovat */
+    height: 100%;
+    display: block;
+    position: static; 
+    object-fit: contain;
+    object-position: bottom;
   }
 }
 
+
+/*kontakt*/
 .contact {
   grid-area: contact;
   background-color: #383e1c;
-  margin-top: 5%;
+  
 }
 h4 {
   text-align: center;
@@ -399,7 +421,7 @@ h4 {
   width: 20%;
   margin: 4% 15% 13% 13%;
 }
-
+/*kontaktni formular*/
 .forms {
   display: flex;
   flex-direction: column;
