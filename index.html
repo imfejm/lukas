@@ -23,8 +23,11 @@
       <div class="full">
         <a href="">e-shop</a>
         <a href="#intro">Lukáš</a>
-        <a href="#contact">kontakt</a>
+        <a href="#contact" data-key="contact">kontakt</a>
         <a href="">výstavy</a>
+        <button class="english">
+          <img src="img/eng.png">
+        </button>
       </div>
 
       <div class="navigace small hidden" id="menu">
@@ -39,11 +42,16 @@
             <a class="nav-link" href="#intro">Lukáš</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#contact">kontakt</a>
+            <a class="nav-link" data-key="contact" href="#contact">kontakt</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="">výstavy</a>
           </li>
+          <li class="free"></li>
+          
+          <button class="english2">
+            <img src="img/eng.png">
+          </button>
         </ul>
       </div>
 
@@ -63,8 +71,8 @@
 
       <div class="info">
         <h1>LP&nbsp;& Bonsai</h1>
-        <p>Jsem Lukáš Praus.</p>
-        <p>
+        <p data-key="iam">Jsem Lukáš Praus.</p>
+        <p data-key="info">
           Věnuji se keramice, především bonsajovým miskám a tempai: drobným
           figurkám zvířat, budov či postav, které doplňují bonsajové kompozice a
           podtrhují jejich atmosféru.        
@@ -72,19 +80,21 @@
           vytvořený z kvalitní hlíny a vypálený na vysokou teplotu. S důrazem na
           detail, odolnost a jedinečný charakter.       
           V menší míře se též stále věnuji bonsajím i yamadori, stromům
-          nalezeným v přírodě, které mají potenciál bonsají se stát.        
-        <p>
+          nalezeným v přírodě, které mají potenciál stát se bonsají.      
+        <p data-key="info2">
           Pokud hledáte jedinečný doplněk, podívejte se na můj e-shop nebo mě
           kontaktujte. Rád vám pomohu najít ten pravý kus.</p>
         </p>
       </div>
+      
       <div class="links">
         <div class="image-wrapper">
           <a href=""></a>
           <div class="border"></div>
           <!-- Přidaný rámeček -->
           <img src="img/keramika.jpg" alt="ceramic bowl japan" />
-          <h2>Keramika</h2>
+          <h2 data-key="ceramic" >Keramika</h2>
+          
         </div>
         <div class="image-wrapper">
           <a href=""></a>
@@ -100,8 +110,9 @@
           <h2>Bonsai</h2>
         </div>
       </div>
+      
       <div class="intro" id="intro">
-        <p class="hello">
+        <p class="hello" data-key="intro">
           Bonsaje jsou součástí mé cesty už od roku 2016. Práce s nimi mě
           přivedla i ke keramice, která se stala přirozeným rozšířením mého
           řemesla. První misku jsem vytvořil v roce 2019 a její výsledek předčil
@@ -115,9 +126,10 @@
           <img class="portrait" src="img/luk.png" alt="lukas praus" />
         </div>
       </div>
+      
       <div class="contact" id="contact">
         <div class="all">
-          <h4>
+          <h4 data-key="follow">
             Sleduj mě na Instagramu nebo Facebooku. Najdeš tam novinky z výstav,
             nové výrobky a můžeš mi i napsat. Nebo samozřejmě můžeš použít
             kontaktní formulář tady.
@@ -140,16 +152,16 @@
           </div>
         </div>
         <form class="forms" action="send_mail.php" method="POST">
-          <label for="name">Jméno:</label>
+          <label for="name" data-key="name">Jméno:</label>
           <input type="text" id="name" name="name" required />
 
-          <label for="email">Váš e-mail:</label>
+          <label for="email" data-key="email">Váš e-mail:</label>
           <input type="email" id="email" name="email" required />
 
-          <label for="message">Zpráva:</label>
+          <label for="message" data-key="message">Zpráva:</label>
           <textarea id="message" name="message" rows="5" required></textarea>
 
-          <button type="submit">Odeslat</button>
+          <button type="submit" data-key="send">Odeslat</button>
         </form>
       </div>
     </div>

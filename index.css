@@ -60,6 +60,8 @@ body {
   list-style: none;
   text-decoration: none;
   font-size: 1.5rem;
+  color: #bfb085;
+  margin-left: 3%;
 }
 .full a {
   text-decoration: none;
@@ -144,6 +146,12 @@ ul {
   display: flex;
   flex-direction: column;
 }
+.free {
+  height: 4rem;
+}
+.eng {
+  width: 48px;
+}
 @media only screen and (min-width: 800px) {
   .nav {
     display: none;
@@ -156,6 +164,53 @@ ul {
   column-gap: 10rem;
   color: #07192f;
 }
+.english img {
+  width: 48px;
+}
+.english {
+  background-color: transparent;
+  width: 60px;
+  aspect-ratio: 1/1;
+  border-style: none;
+  border-radius: 50%;
+  margin-top: 0;
+  margin-left: 20%;
+}
+.english2 {
+  background-color: transparent;
+  width: 48px;
+  aspect-ratio: 1/1;
+  border-style: none;
+  border-radius: 50%;
+}
+.english2 img {
+  width: 36px;
+  aspect-ratio: 1/1;
+}
+@keyframes shakeLoop {
+  0%,
+  100% {
+    transform: translateX(0);
+  } /* Normální stav */
+  10%,
+  30%,
+  50% {
+    transform: translateX(-3px);
+  } /* Pohyb doleva */
+  20%,
+  40% {
+    transform: translateX(3px);
+  } /* Pohyb doprava */
+  80% {
+    transform: translateX(0);
+  } /* Zastavení */
+}
+.english.active,
+.english2.active {
+  background-color: #f50e0e; /* Tmavší barva při aktivaci */
+  border: 2px solid rgb(48, 18, 40); /* Zvýraznění okraje */
+  animation: shakeLoop 3s ease-in-out infinite;
+}
 .hidden {
   display: none;
 }
@@ -164,7 +219,7 @@ ul {
   max-width: 15%;
   position: absolute;
   left: 78%;
-  top: 7%;
+  top: -9%;
 }
 
 .karusel {
@@ -216,7 +271,7 @@ ul {
   flex-direction: column;
   align-items: baseline;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
-  margin: 0 auto 7% auto;
+  margin: 0 auto 60px auto;
   max-width: 90%; /* Omezí šířku, aby margin fungoval */
   line-height: 1.5; /* Zvýší čitelnost textu */
 }
@@ -264,6 +319,7 @@ h1 {
   display: inline-block;
   border-radius: 50%;
   margin: 7%;
+  margin-bottom: 60px;
 }
 
 /* Nový prvek pro rámeček */
@@ -338,7 +394,7 @@ h1 {
   justify-content: space-between;
   width: 90%; /* Nebude zabírat celou šířku */
   height: fit-content;
-  margin: 5% auto 0 auto; /* Automatický margin vycentruje */
+  margin: 5% auto 60px auto; /* Automatický margin vycentruje */
   max-width: 100%; /* Zabrání přetečení */
   align-items: center;
   background-color: #bfb085;
@@ -373,7 +429,7 @@ h1 {
     gap: 1rem;
     width: 90%; /* Omezíme šířku, aby nepřetékal */
     max-width: 1200px; /* Omezí maximální šířku */
-    margin: 5% auto 0 auto; /* Automaticky vycentruje */
+    margin: 60px auto 0 auto; /* Automaticky vycentruje */
     background-color: #bfb085;
     border-bottom-right-radius: 20%;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
