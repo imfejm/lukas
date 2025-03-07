@@ -101,6 +101,7 @@ document.addEventListener("DOMContentLoaded", function () {
     email: "E-mail:",
     message: "Message:",
     send: "Send",
+    exhibitions: "exhibitions",
   };
 
   const originalTexts = {};
