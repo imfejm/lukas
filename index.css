@@ -37,7 +37,7 @@ body {
   display: grid;
   grid-template-areas:
     "karusel"
-    "info"
+    /*"info"*/
     "interval"
     "links"
     "interval2"
@@ -45,13 +45,13 @@ body {
     "interval3"
     "contact";
   grid-template-columns: 1fr;
-  grid-template-rows: 27rem 2fr 60px auto 60px auto 60px auto;
+  grid-template-rows: 27rem /*2fr*/ 60px auto 60px auto 60px auto;
 
   padding-top: 60px;
 }
 @media only screen and (min-width: 800px) {
   .container {
-    grid-template-rows: 80vh 2fr 60px auto 60px auto 60px auto;
+    grid-template-rows: 80vh /*2fr*/ 60px auto 60px auto 60px auto;
   }
 }
 
@@ -552,7 +552,9 @@ textarea {
   margin: 1%;
   margin-bottom: 5%;
 }
-
-footer{
+.info {
+  display: none;
+}
+footer {
   text-align: center;
 }
