@@ -37,21 +37,21 @@ body {
   display: grid;
   grid-template-areas:
     "karusel"
-    /*"info"
-    "interval"*/
+    /*"info"*/
+    "interval"
     "links"
     "interval2"
     "intro"
     "interval3"
     "contact";
   grid-template-columns: 1fr;
-  grid-template-rows: 27rem /*2fr 60px*/ auto 60px auto 60px auto;
+  grid-template-rows: 27rem /*2fr*/ 60px auto 60px auto 60px auto;
 
   padding-top: 60px;
 }
 @media only screen and (min-width: 800px) {
   .container {
-    grid-template-rows: 80vh /*2fr 60px*/ auto 60px auto 60px auto;
+    grid-template-rows: 80vh /*2fr*/ 60px auto 60px auto 60px auto;
   }
 }
 
@@ -64,7 +64,8 @@ body {
   background-color: #d4cdbc;
 }
 .interval{
-  display:none
+  background-color: #383e1c;
+  box-shadow: 0px 3px 4px rgba(180, 21, 21, 0.633);
 }
 .interval2 {
   grid-area: interval2;
@@ -261,7 +262,7 @@ a.nav-link {
   background-position: 50%;
   transition: background-image 1s ease-in-out;
   position: relative;
-  box-shadow: 0px 3px 4px rgba(180, 21, 21, 0.633);
+  /*box-shadow: 0px 3px 4px rgba(180, 21, 21, 0.633);*/
 }
 @media only screen and (min-width: 800px) {
   .karusel {
@@ -336,6 +337,7 @@ h1 {
 /*odkazy na eshop*/
 .links {
   grid-area: links;
+  margin-top: 5%;
   /*background-color: #c1bc7a;*/
   display: flex;
   flex-direction: column;
