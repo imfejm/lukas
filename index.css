@@ -45,13 +45,13 @@ body {
     "interval3"
     "contact";
   grid-template-columns: 1fr;
-  grid-template-rows: 27rem /*2fr*/ 60px auto 60px auto 60px auto;
+  grid-template-rows: 23rem /*2fr*/ 50px auto 60px auto 60px auto;
 
   padding-top: 60px;
 }
 @media only screen and (min-width: 800px) {
   .container {
-    grid-template-rows: 80vh /*2fr*/ 60px auto 60px auto 60px auto;
+    grid-template-rows: 80vh /*2fr*/ 10px auto 60px auto 60px auto;
   }
 }
 
@@ -63,9 +63,11 @@ body {
   min-height: 60px;
   background-color: #d4cdbc;
 }
-.interval{
+.interval {
   background-color: #383e1c;
-  box-shadow: 0px 3px 4px rgba(180, 21, 21, 0.633);
+  box-shadow: 0px 7px 20px #c1bc7a;
+  max-height: 10px;
+  margin-bottom: 5%;
 }
 .interval2 {
   grid-area: interval2;
@@ -84,7 +86,7 @@ body {
   list-style: none;
   text-decoration: none;
   font-size: 1.5rem;
- color: #bfb085;
+  color: #bfb085;
   margin-left: 3%;
 }
 .full a {
@@ -233,7 +235,7 @@ a.nav-link {
 }
 .english.active,
 .english2.active {
-  box-shadow: 10px 2px 10px rgba(180, 21, 21, 0.989);
+  box-shadow: 10px 2px 10px #c1bc7a;
 
   animation: shakeLoop 3s ease-in-out infinite;
 }
@@ -338,7 +340,7 @@ h1 {
 .links {
   grid-area: links;
   margin-top: 5%;
-  /*background-color: #c1bc7a;*/
+  background-color: #c1bc7a3b;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -435,7 +437,7 @@ h1 {
   max-width: 100%; /* Zabrání přetečení */
   align-items: center;
   border-bottom-right-radius: 20%;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 7px 7px #c1bc7a;
 }
 
 .hello {
@@ -468,7 +470,7 @@ h1 {
     margin: 0 auto 0 auto; /* Automaticky vycentruje */
 
     border-bottom-right-radius: 20%;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 10px 15px #c1bc7a;
     grid-template-areas: "hello case";
     grid-template-columns: 2fr 3fr;
   }
@@ -548,6 +550,7 @@ h4 {
 textarea {
   width: 90%;
   margin: 1%;
+  background-color: #d4cdbc;
 }
 .forms button {
   background-color: #bfb085;
@@ -562,4 +565,5 @@ textarea {
 }
 footer {
   text-align: center;
+  background-color: #c1bc7a3b;
 }
