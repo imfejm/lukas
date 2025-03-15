@@ -150,67 +150,74 @@ function toggleLanguage() {
   emailjs.init("A7warbGS4e9Vbks9S"); // Nahraď vlastním user_id
 })();
 
-document.getElementById("contact-form").addEventListener("submit", function (event) {
-  event.preventDefault();
+document
+  .getElementById("contact-form")
+  .addEventListener("submit", function (event) {
+    event.preventDefault();
 
-  const serviceID = "service_qoy87ku"; // Nahraď vlastním service_id
-  const templateID = "template_zqtjykk"; // Nahraď vlastním template_id
+    const serviceID = "service_qoy87ku"; // Nahraď vlastním service_id
+    const templateID = "template_zqtjykk"; // Nahraď vlastním template_id
 
-  const name = document.getElementById("name").value.trim();
-  const email = document.getElementById("email").value.trim();
-  const message = document.getElementById("message").value.trim();
-  const honeypot = document.getElementById("honeypot").value; // Honeypot ochrana
-  const recaptchaResponse = grecaptcha.getResponse(); // reCAPTCHA odpověď
-  const submitTime = new Date().getTime();
+    const name = document.getElementById("name").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const message = document.getElementById("message").value.trim();
+    const honeypot = document.getElementById("honeypot").value; // Honeypot ochrana
+    const recaptchaResponse = grecaptcha.getResponse(); // reCAPTCHA odpověď
+    const submitTime = new Date().getTime();
 
-  // Uložení času prvního odeslání
-  if (!this.dataset.startTime) {
-    this.dataset.startTime = submitTime;
-  }
+    // Uložení času prvního odeslání
+    if (!this.dataset.startTime) {
+      this.dataset.startTime = submitTime;
+    }
 
-  const elapsedTime = submitTime - this.dataset.startTime;
+    const elapsedTime = submitTime - this.dataset.startTime;
 
-  // ✅ 1. Kontrola honeypot inputu (musí být prázdný)
-  if (honeypot !== "") {
-    alert("Spam detekován!");
-    return;
-  }
+    // ✅ 1. Kontrola honeypot inputu (musí být prázdný)
+    if (honeypot !== "") {
+      alert("Spam detekován!");
+      return;
+    }
 
-  // ✅ 2. Kontrola reCAPTCHA (musí být vyplněna)
-  if (!recaptchaResponse) {
-    alert("Potvrďte, že nejste robot!");
-    return;
-  }
+    // ✅ 2. Kontrola reCAPTCHA (musí být vyplněna)
+    if (!recaptchaResponse) {
+      alert("Potvrďte, že nejste robot!");
+      return;
+    }
 
-  // ✅ 3. Kontrola příliš rychlého odeslání (méně než 2 sekundy)
-  if (elapsedTime < 2000) {
-    alert("Formulář byl odeslán příliš rychle. Zkuste to znovu.");
-    return;
-  }
+    // ✅ 3. Kontrola příliš rychlého odeslání (méně než 2 sekundy)
+    if (elapsedTime < 2000) {
+      alert("Formulář byl odeslán příliš rychle. Zkuste to znovu.");
+      return;
+    }
 
-  // ✅ 4. Ověření obsahu zprávy (blokace spammových vzorů)
-  const spamPatterns = [/http(s)?:\/\//i, /viagra/i, /free money/i, /crypto/i]; // Přidat další klíčová slova podle potřeby
-  if (spamPatterns.some((pattern) => pattern.test(message))) {
-    alert("Zpráva obsahuje podezřelé prvky. Zkuste jiný text.");
-    return;
-  }
+    // ✅ 4. Ověření obsahu zprávy (blokace spammových vzorů)
+    const spamPatterns = [
+      /http(s)?:\/\//i,
+      /viagra/i,
+      /free money/i,
+      /crypto/i,
+    ]; // Přidat další klíčová slova podle potřeby
+    if (spamPatterns.some((pattern) => pattern.test(message))) {
+      alert("Zpráva obsahuje podezřelé prvky. Zkuste jiný text.");
+      return;
+    }
 
-  const templateParams = {
-    name: name,
-    reply_to: email,
-    message: message,
-    "g-recaptcha-response": recaptchaResponse, // Přidání reCAPTCHA odpovědi
-  };
+    const templateParams = {
+      name: name,
+      reply_to: email,
+      message: message,
+      "g-recaptcha-response": recaptchaResponse, // Přidání reCAPTCHA odpovědi recaptchaResponse
+    };
 
-  emailjs
-    .send(serviceID, templateID, templateParams)
-    .then((response) => {
-      alert("Zpráva byla úspěšně odeslána!");
-      document.getElementById("contact-form").reset();
-      grecaptcha.reset(); // Resetuje reCAPTCHA
-      this.dataset.startTime = ""; // Reset časovače
-    })
-    .catch((error) => {
-      alert("Chyba při odesílání: " + error.text);
-    });
-});
+    emailjs
+      .send(serviceID, templateID, templateParams)
+      .then((response) => {
+        alert("Zpráva byla úspěšně odeslána!");
+        document.getElementById("contact-form").reset();
+        grecaptcha.reset(); // Resetuje reCAPTCHA
+        this.dataset.startTime = ""; // Reset časovače
+      })
+      .catch((error) => {
+        alert("Chyba při odesílání: " + error.text);
+      });
+  });
