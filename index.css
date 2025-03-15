@@ -233,10 +233,12 @@ a.nav-link {
     transform: translateX(0);
   } /* Zastavení */
 }
-.english.active,
-.english2.active {
+.english.active {
   box-shadow: 10px 2px 10px #c1bc7a;
-
+  animation: shakeLoop 3s ease-in-out infinite;
+}
+.english2.active {
+  box-shadow: 10px 2px 10px #ece7a1;
   animation: shakeLoop 3s ease-in-out infinite;
 }
 .hidden {
@@ -550,7 +552,7 @@ h4 {
 textarea {
   width: 90%;
   margin: 1%;
-  background-color: #d4cdbc;
+  background-color: #e1e2dc;
 }
 .forms button {
   background-color: #bfb085;

@@ -96,11 +96,11 @@ document.addEventListener("DOMContentLoaded", function () {
     intro:
       "Bonsai have been part of my journey since 2016. Working with them also led me to ceramics, which became a natural extension of my craft. I created my first bowl in 2019 and the result exceeded my expectations. Since then, I have fully immersed myself in working with clay and today I produce not only high-quality bonsai bowls, but also other ceramic products. Modeling often highlights the beauty of handwork and brings a satisfied smile to my face from a job well done. Which is further enhanced by the positive feedback from you!",
     follow:
-      "Follow me on Instagram or Facebook. You will find news from exhibitions, new products and you can also write to me. Or of course you can use the contact form here.",
-    name: "Name:",
-    email: "E-mail:",
-    message: "Message:",
-    send: "Send",
+      "Follow me on Instagram or Facebook. Here you will find news from exhibitions, new products and you can also write to me. Or of course you can use this contact form.",
+    name: "your name:",
+    email: "your e-mail where I can reply:",
+    message: "message:",
+    send: "send",
     exhibitions: "exhibitions",
   };
 
@@ -144,3 +144,73 @@ function toggleLanguage() {
     button.classList.toggle("active", isEnglish)
   );
 }
+
+//kontaktni formular:
+(function () {
+  emailjs.init("A7warbGS4e9Vbks9S"); // Nahraď vlastním user_id
+})();
+
+document.getElementById("contact-form").addEventListener("submit", function (event) {
+  event.preventDefault();
+
+  const serviceID = "service_qoy87ku"; // Nahraď vlastním service_id
+  const templateID = "template_zqtjykk"; // Nahraď vlastním template_id
+
+  const name = document.getElementById("name").value.trim();
+  const email = document.getElementById("email").value.trim();
+  const message = document.getElementById("message").value.trim();
+  const honeypot = document.getElementById("honeypot").value; // Honeypot ochrana
+  const recaptchaResponse = grecaptcha.getResponse(); // reCAPTCHA odpověď
+  const submitTime = new Date().getTime();
+
+  // Uložení času prvního odeslání
+  if (!this.dataset.startTime) {
+    this.dataset.startTime = submitTime;
+  }
+
+  const elapsedTime = submitTime - this.dataset.startTime;
+
+  // ✅ 1. Kontrola honeypot inputu (musí být prázdný)
+  if (honeypot !== "") {
+    alert("Spam detekován!");
+    return;
+  }
+
+  // ✅ 2. Kontrola reCAPTCHA (musí být vyplněna)
+  if (!recaptchaResponse) {
+    alert("Potvrďte, že nejste robot!");
+    return;
+  }
+
+  // ✅ 3. Kontrola příliš rychlého odeslání (méně než 2 sekundy)
+  if (elapsedTime < 2000) {
+    alert("Formulář byl odeslán příliš rychle. Zkuste to znovu.");
+    return;
+  }
+
+  // ✅ 4. Ověření obsahu zprávy (blokace spammových vzorů)
+  const spamPatterns = [/http(s)?:\/\//i, /viagra/i, /free money/i, /crypto/i]; // Přidat další klíčová slova podle potřeby
+  if (spamPatterns.some((pattern) => pattern.test(message))) {
+    alert("Zpráva obsahuje podezřelé prvky. Zkuste jiný text.");
+    return;
+  }
+
+  const templateParams = {
+    name: name,
+    reply_to: email,
+    message: message,
+    "g-recaptcha-response": recaptchaResponse, // Přidání reCAPTCHA odpovědi
+  };
+
+  emailjs
+    .send(serviceID, templateID, templateParams)
+    .then((response) => {
+      alert("Zpráva byla úspěšně odeslána!");
+      document.getElementById("contact-form").reset();
+      grecaptcha.reset(); // Resetuje reCAPTCHA
+      this.dataset.startTime = ""; // Reset časovače
+    })
+    .catch((error) => {
+      alert("Chyba při odesílání: " + error.text);
+    });
+});

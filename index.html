@@ -15,7 +15,7 @@
       href="https://fonts.googleapis.com/css2?family=Anaheim:wght@400..800&family=Edu+AU+VIC+WA+NT+Hand:wght@400..700&family=Grechen+Fuemen&family=Kalam:wght@300;400;700&display=swap"
       rel="stylesheet"
     />
-    <title>Keramika od Luka</title>
+    <title>Keramika Lukas Praus</title>
     <link rel="stylesheet" href="index.css" />
   </head>
   <body>
@@ -134,9 +134,9 @@
       <div class="contact" >
         <div class="all">
           <h4 data-key="follow">
-            Sleduj mě na Instagramu nebo Facebooku. Najdeš tam novinky z výstav,
-            nové výrobky a můžeš mi i napsat. Nebo samozřejmě můžeš použít
-            kontaktní formulář tady.
+            Sledujte mě na Instagramu nebo Facebooku. Najdete zde novinky z výstav,
+            nové výrobky a můžete mi i napsat. Nebo samozřejmě můžete použít tento
+            kontaktní formulář.
           </h4>
           <div class="soc">
             <a
@@ -155,18 +155,30 @@
             </a>
           </div>
         </div>
-        <form class="forms" action="send_mail.php" method="POST">
-          <label for="name" data-key="name">Jméno:</label>
-          <input type="text" id="name" name="name" required />
-
-          <label for="email" data-key="email">Váš e-mail:</label>
-          <input type="email" id="email" name="email" required />
-
-          <label for="message" data-key="message">Zpráva:</label>
+        <form class="forms" id="contact-form">
+          <label for="message" data-key="message">zpráva:</label>
           <textarea id="message" name="message" rows="5" required></textarea>
-
-          <button type="submit" data-key="send">Odeslat</button>
+        
+          <label for="name" data-key="name">vaše jméno:</label>
+          <input type="text" id="name" name="name" required />
+        
+          <label for="email" data-key="email">váš e-mail, kam mohu odepsat:</label>
+          <input type="email" id="email" name="reply_to" required />
+        
+          <!-- Honeypot input (skrytý, roboti ho vyplní) -->
+          <input type="text" id="honeypot" name="honeypot" style="display: none;" />
+        
+          <!-- Google reCAPTCHA -->
+          <div class="g-recaptcha" data-sitekey="6Lca6fQqAAAAALFQk_1k45_wO96r9EwsxJNN5OZf"></div>
+        
+          <button type="submit" data-key="send">odeslat</button>
         </form>
+        
+        <!-- Načtení Google reCAPTCHA API -->
+        <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+        
+        
+        <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
       </div>
       <footer><p>© <a href="https://imfejm.cz/" target="_blank"
         rel="noopener noreferrer">imFEJM.cz</a> 2025</p></footer>
