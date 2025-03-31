@@ -231,8 +231,8 @@ a.nav-link {
   } /* Pohyb doprava */
   80% {
     transform: translateX(0);
-  } /* Zastavení */
-}
+  }
+} /* Zastavení */
 .english.active {
   box-shadow: 10px 2px 10px #c1bc7a;
   animation: shakeLoop 3s ease-in-out infinite;
@@ -568,4 +568,37 @@ textarea {
 footer {
   text-align: center;
   background-color: #c1bc7a3b;
+}
+
+@media (prefers-color-scheme: dark) and (max-width: 768px) {
+  body {
+    background-color: #362f2e;
+    color: #dedac5;
+  }
+  .title {
+    background-color: #383e1c;
+  }
+
+  .links {
+    background-color: #c1bc7a7b;
+  }
+
+  .forms input,
+  textarea {
+    background-color: #d4cdbc;
+  }
+  .intro {
+    background-color: #383e1c;
+  }
+  .interval,
+  .interval2,
+  .interval3 {
+    background-color: #362f2e;
+  }
+  footer {
+    background-color: #362f2e;
+  }
+  footer a:visited{
+    color:#d4cdbc
+  }
 }
